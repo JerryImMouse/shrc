@@ -1,0 +1,15 @@
+[package]
+name = "shrc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tiny_http = "0.12.0"
+dotenvy = "0.15"
+
+[profile.release]
+opt-level = "z"     # optimize for size
+lto = true          # link-time optimization
+codegen-units = 1   # better optimization
+strip = true        # strip symbols
+panic = "abort"     # smaller panic handler
